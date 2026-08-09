@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Price Tracker</title>
+</head>
+
+<body>
+
+    <h1>Create Your Account</h1>
+
+    <p>Register to start tracking product prices.</p>
+
+    {% if form.errors %}
+        <div>
+            <p>Please correct the following errors:</p>
+
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </p>
+
+        <p>
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+        </p>
+
+        <p>
+            <label for="id_password">Password:</label>
+            {{ form.password }}
+        </p>
+
+        <p>
+            <label for="id_confirm_password">Confirm Password:</label>
+            {{ form.confirm_password }}
+        </p>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/login/">Login here</a>
+    </p>
+
+</body>
+</html>
