@@ -1,138 +1,73 @@
-# 🛒 E-commerce Price Tracker (Amazon & Flipkart) 
 
-This Django-based price tracker allows users to scrape and monitor product prices from major e-commerce platforms like **Amazon** and **Flipkart**. It fetches product details for a given keyword and exposes RESTful APIs to list, search, and track historical pricing data.
+# 🛒 E-Commerce Price Tracker
 
----
+A Django-based web application that helps users track product prices from e-commerce websites and monitor whether products reach their desired target price.
 
-## 📌 Objective
+## 📌 Project Overview
 
-Create a web-based system that:
-- Scrapes product data from Amazon and Flipkart.
-- Stores the data in a database.
-- Exposes APIs to interact with the tracked products.
+The E-Commerce Price Tracker allows users to enter a product URL and a target price. The application retrieves product information and price data, stores price history, and provides a dashboard for monitoring tracked products.
 
----
+The project was originally inspired by an existing open-source GitHub project. I customized and extended the project by modifying the backend functionality and creating a user-friendly frontend/dashboard.
 
-## 🧱 Project Structure
+## ✨ Features
 
-```
-ECOMMERCE-PRICE-TRACKER/
+- 🔐 User registration and login
+- 🛒 Add products using product URLs
+- 🎯 Set a target price
+- 💰 Track current product prices
+- 📊 Maintain product price history
+- 📈 Display price history using charts
+- 🔔 Target-price notification functionality
+- 📧 Email notification support
+- 🖥️ User-friendly dashboard
+- 🗑️ Manage tracked products
+
+## 🛠️ Technologies Used
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Chart.js
+
+### Backend
+- Python
+- Django
+
+### Database
+- SQLite for local development
+
+### Libraries / Tools
+- Requests
+- BeautifulSoup
+- Git
+- GitHub
+
+## 🏗️ Project Structure
+
+```text
+Ecommerce-Price-Tracker/
+│
 ├── manage.py
 ├── requirements.txt
 ├── README.md
-├── .env
-├── db.sqlite3
+├── .gitignore
+│
 ├── price_tracker/
 │   ├── settings.py
 │   ├── urls.py
-│   └── ...
-└── tracker/
-    ├── models.py
-    ├── serializers.py
-    ├── views.py
-    ├── urls.py
-    ├── scraper/
-    │   ├── factory.py
-    │   ├── amazon_scraper.py
-    │   ├── flipkart_scraper.py
-    ├── management/
-    │   └── commands/
-    │       └── scrape_products.py
-```
-
----
-
-## 🛠️ Features
-
-### ✅ Core Functionality
-- 🔎 Search and scrape product data by keyword (Amazon/Flipkart).
-- 🧠 Factory Design Pattern to switch between scrapers.
-- 📥 Store data in Django models with historical price tracking.
-- 🔗 DRF APIs to:
-  - List all tracked products.
-  - Search products by title.
-  - Get historical price data for a product.
-
----
-
-## 🚀 Getting Started
-
-### 🔧 Installation
-
-```bash
-git clone https://github.com/yourusername/ECOMMERCE-PRICE-TRACKER.git
-cd ECOMMERCE-PRICE-TRACKER
-python -m venv venv
-venv\Scripts\activate     # On Windows
-# Or
-source venv/bin/activate  # On Linux/macOS
-
-pip install -r requirements.txt
-```
-
-### 🔑 Environment Setup
-
-Create a `.env` file at the root with appropriate Django settings. Example:
-```
-DEBUG=True
-SECRET_KEY=your-secret-key
-```
-
-### 🔨 Migrate DB
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
----
-
-## 🧪 Usage
-
-### 📦 Scrape Product Data
-
-To scrape products (e.g., smartphones from Flipkart):
-```bash
-python manage.py scrape_products --site flipkart --keyword smartphones --pages 3
-```
-
-Amazon example:
-```bash
-python manage.py scrape_products --site amazon --keyword laptops --pages 3
-```
-
-### 🔌 API Endpoints (via Django REST Framework)
-
-| Endpoint                     | Method | Description                        |
-|-----------------------------|--------|------------------------------------|
-| `/api/products/`            | GET    | List all tracked products          |
-| `/api/products/?search=tv` | GET    | Search products by keyword         |
-| `/api/products/<id>/history/` | GET | Historical price data              |
-
----
-
-## ✅ Testing
-
-Run tests using Django's test framework:
-
-```bash
-python manage.py test
-```
-
----
-
-## 🧠 Tech Stack
-
-- **Django**: Backend framework
-- **Django REST Framework**: API layer
-- **SQLite**: Default database (easily swappable)
-- **BeautifulSoup & Requests**: Web scraping
-- **Factory Pattern**: For switching scrapers based on site
-
----
-
-## 🧾 Submission Notes
-
-- All dependencies listed in `requirements.txt`.
-- Code uses clear structure, error handling, and logging.
-- Scraper supports multiple pages and adapts to layout changes.
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── tracker/
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   ├── urls.py
+│   ├── admin.py
+│   ├── scraper/
+│   ├── templates/
+│   ├── static/
+│   └── management/
+│
+└── ...
